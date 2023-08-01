@@ -1,3 +1,4 @@
+import Footer from "./layouts/footer"
 import Header from "./layouts/header"
 import Hero from "./layouts/hero"
 
@@ -11,6 +12,7 @@ const App = () => {
       <GlobalStyles />
       <Header />
       <Hero />
+      <Footer />
     </Container>
     </>
   )
