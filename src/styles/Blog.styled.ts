@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+import { GradientText } from "./Hero.styled";
+
 import { breakpoints } from "../theme";
 
 export const Section = styled.section`
@@ -12,9 +14,8 @@ export const Section = styled.section`
   }
 `;
 
-export const SectionTitle = styled.h2`
+export const SectionTitle = styled(GradientText)`
   padding-left: 0.8em;
-  color: #f32170;
   font-size: 1.5rem;
   font-weight: 700;
 
