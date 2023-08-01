@@ -11,3 +11,7 @@ export interface IMobileMenuProps {
 export interface INavLinksProps {
   handleCloseNavMenu: () => void;
 };
+
+export interface ITitle {
+  title: string;
+}

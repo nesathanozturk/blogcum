@@ -1,11 +1,12 @@
 import PostPreview from "../../components/PostPreview";
+import Title from "../../components/Title";
 
-import { Section, SectionTitle, BlogContainer } from "../../styles/Blog.styled";
+import { Section, BlogContainer } from "../../styles/Blog.styled";
 
 const Blogs = () => {
   return (
     <Section>
-      <SectionTitle>Bloglar</SectionTitle>
+      <Title title="Bloglar" />
       <BlogContainer>
         <PostPreview />
         <PostPreview />
