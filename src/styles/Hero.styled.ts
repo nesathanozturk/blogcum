@@ -1,16 +1,17 @@
+import { Box } from "@mui/material";
 import styled from "styled-components";
 
-export const Section = styled.section`
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- gap: 1rem;
- margin-top: 4em;
- padding: 0 2.2em;
- color: #fff;
- text-align: center;
-`;
+export const Section = styled(Box)({
+ flexDirection: "column",
+ display: "flex",
+ justifyContent: "center",
+ alignItems: "center",
+ gap: "1rem",
+ marginTop: "4em",
+ padding: "0 2.2em",
+ color: "#fff",
+ textAlign: "center",
+});
 
 const GradientText = styled.h1`
 background: linear-gradient(to right, #f32170,
@@ -29,14 +30,6 @@ export const Subtitle = styled(GradientText)`
 font-family: 'Arial', sans-serif;
 margin-bottom: 0.5em;
 font-size: 2rem;
-`;
-
-export const Description = styled.p`
- color: #f4f4f4f4;
- margin-bottom: 0.5em;
- font-size: 1.4rem;
- font-weight: 800;
- line-height: 1.5;
 `;
 
 export const Link = styled.a`
