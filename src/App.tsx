@@ -1,6 +1,10 @@
+import Header from "./layouts/header"
+
 const App = () => {
   return (
-    <div>App</div>
+    <>
+    <Header />
+    </>
   )
 }
 
