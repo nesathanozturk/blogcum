@@ -33,7 +33,7 @@ html:focus-within {
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
-  background: #111111;
+  background: #1C1B22;
   color: #FFFFFF;
   font-family: 'Poppins', sans-serif;
   margin: 0;
