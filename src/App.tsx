@@ -1,9 +1,15 @@
 import Header from "./layouts/header"
 
+import { Container } from "./styles/Container.styled"
+import { GlobalStyles } from "./styles/Global"
+
 const App = () => {
   return (
     <>
-    <Header />
+    <Container>
+      <GlobalStyles />
+      <Header />
+    </Container>
     </>
   )
 }
