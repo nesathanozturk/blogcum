@@ -1,6 +1,4 @@
-import Footer from "./layouts/footer"
-import Header from "./layouts/header"
-import Hero from "./layouts/hero"
+import HomePage from "./pages/home"
 
 import { Container } from "./styles/Container.styled"
 import { GlobalStyles } from "./styles/Global"
@@ -10,9 +8,7 @@ const App = () => {
     <>
     <Container>
       <GlobalStyles />
-      <Header />
-      <Hero />
-      <Footer />
+      <HomePage />
     </Container>
     </>
   )

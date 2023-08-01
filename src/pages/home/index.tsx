@@ -1,5 +1,15 @@
+import Header from "../../layouts/header";
+import Hero from "../../layouts/hero";
+import Footer from "../../layouts/footer";
+
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <>
+      <Header />
+      <Hero />
+      <Footer />
+    </>
+  );
 };
 
 export default HomePage;
