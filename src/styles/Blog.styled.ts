@@ -14,6 +14,7 @@ export const Section = styled.section`
 
 export const SectionTitle = styled.h2`
   padding-left: 0.8em;
+  color: #f32170;
   font-size: 1.5rem;
   font-weight: 700;
 
