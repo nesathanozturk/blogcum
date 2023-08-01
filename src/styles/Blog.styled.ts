@@ -4,14 +4,23 @@ import styled from "styled-components";
 import { breakpoints } from "../theme";
 
 export const Section = styled.section`
-  padding: 0 1.6em;
+  padding: 0.2em 0.8em;
   margin-top: 2em;
+
+  @media ${breakpoints.lg} {
+    padding-left: 1.6em;
+  }
 `;
 
 export const SectionTitle = styled.h2`
-  padding: 0.2em 0.45em;
-  font-size: 2rem;
+  padding-left: 0.8em;
+  font-size: 1.5rem;
   font-weight: 700;
+
+  @media ${breakpoints.lg} {
+    font-size: 2rem;
+    padding-left: 0.45em;
+  }
 `;
 
 export const BlogContainer = styled.div`
