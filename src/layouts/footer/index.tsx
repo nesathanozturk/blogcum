@@ -9,7 +9,15 @@ const Footer = () => {
         href="https://www.github.com/nesathanozturk"
         rel="noopener noreferrer"
         target="_blank"
-        sx={{ color: "#fff", textDecoration: "underline", fontWeight: 700 }}
+        sx={{ 
+          color: "#fff",
+           textDecoration: "underline",
+            fontWeight: 700,
+             "&:hover": {
+               color: "#908e9b",
+               transition: "color 0.2s linear",
+              } 
+              }}
       >
         Neşathan Öztürk
       </Link>
