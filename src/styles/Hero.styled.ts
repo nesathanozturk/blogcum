@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
 import styled from "styled-components";
 
+import { breakpoints } from "../theme";
+
 export const Section = styled(Box)({
  flexDirection: "column",
  display: "flex",
@@ -23,13 +25,21 @@ background: linear-gradient(to right, #f32170,
 
 export const Title = styled(GradientText)`
  margin-bottom: 0.3em;
+ font-size: 2rem;
+
+ @media ${breakpoints.xl} {
  font-size: 3rem;
+ }
 `;
 
 export const Subtitle = styled(GradientText)`
 font-family: 'Arial', sans-serif;
 margin-bottom: 0.5em;
-font-size: 2rem;
+font-size: 1.3rem;
+
+@media ${breakpoints.xl} {
+    font-size: 2rem;
+}
 `;
 
 export const Link = styled.a`
@@ -37,7 +47,7 @@ position: relative;
 padding: 0.4em 0.8em;
 background: #fff;
 color: #000;
-font-size: 1.3rem;
+font-size: 1.1rem;
 letter-spacing: 2px;
 text-decoration: none;
 border: 3px solid;
@@ -51,5 +61,9 @@ touch-action: manipulation;
  box-shadow: 0px 0px 0px 0px;
  top: 5px;
  left: 5px;
+}
+
+@media ${breakpoints.xl} {
+    font-size: 1.3rem;
 }
 `;
