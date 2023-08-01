@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
- height: 75vh;
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
  gap: 1rem;
+ margin-top: 4em;
  padding: 0 2.2em;
  color: #fff;
  text-align: center;
