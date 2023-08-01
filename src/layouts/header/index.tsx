@@ -1,40 +1,25 @@
-import { useState } from "react";
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 import { Stack } from "@mui/material";
+
 import ProfileMenu from "../../components/ProfileMenu";
 import { StyledToolbar } from "../../styles/Header.styled";
 
+import useToggle from '../../hooks/useToggle';
+
+import { pages } from '../../utils/data';
+
 const Header = () => {
-  const [isNavOpen, setIsNavOpen] = useState<null | HTMLElement>(null);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setIsNavOpen(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setIsUserMenuOpen(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setIsNavOpen(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setIsUserMenuOpen(null);
-  };
-
-  const pages = ['Ana Sayfa', 'Yazılar', 'Profiliniz'];
-  const settings = ['Profil', 'Çıkış Yap'];
+  const { isNavOpen, isUserMenuOpen, handleOpenNavMenu, handleOpenUserMenu, handleCloseNavMenu, handleCloseUserMenu } = useToggle();
 
  return (
   <AppBar position="static" sx={{ backgroundColor: "transparent", padding: "1em", boxShadow: 0 }}>
@@ -109,7 +94,7 @@ const Header = () => {
               <Avatar alt="Neşathan ÖZTÜRK" src="https://avatars.githubusercontent.com/u/107864503?v=4" />
             </IconButton>
           </Tooltip>
-          <ProfileMenu settings={settings} handleCloseUserMenu={handleCloseUserMenu} isUserMenuOpen={isUserMenuOpen}  />
+          <ProfileMenu isUserMenuOpen={isUserMenuOpen} handleCloseUserMenu={handleCloseUserMenu} />
         </Stack>
       </StyledToolbar>
     </Container>
