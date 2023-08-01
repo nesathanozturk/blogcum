@@ -29,7 +29,7 @@ const Header = () => {
             letterSpacing: '.08rem',
             color: '#FFFFFF',
             textDecoration: 'none',
-            fontSize: { xs: "1rem", sm: "1.3rem" , md: "1.6rem" }
+            fontSize: { xs: "1rem", sm: "1.3rem" , md: "1.8rem" }
           }}
         >
           Blogcum
