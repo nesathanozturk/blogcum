@@ -1,20 +1,19 @@
-import { Box, Typography } from '@mui/material';
-
-import { StyledLink } from '../../styles/Footer.styled';
+import { Box, Link, Typography } from '@mui/material';
 
 const Footer = () => {
   return (
-   <Box sx={{ marginTop: "7em", fontSize: "0.9rem", textAlign: "center", fontWeigth: 600 }}>
-   <Typography component="p">
-     Made with ❤️ by{" "}
-     <StyledLink
-       to="https://www.github.com/nesathanozturk"
-       rel="noopener noreferrer"
-       target="_blank"
-     >
-       Neşathan Öztürk
-     </StyledLink>
-   </Typography>
+   <Box sx={{ marginTop: "5em", padding: "1em 0", fontSize: { sm: "0.7rem", md: "0.9rem" }, textAlign: "center" }}>
+    <Typography component="p">
+      Made with ❤️ by{" "}
+      <Link
+        href="https://www.github.com/nesathanozturk"
+        rel="noopener noreferrer"
+        target="_blank"
+        sx={{ color: "#fff", textDecoration: "underline", fontWeight: 700 }}
+      >
+        Neşathan Öztürk
+      </Link>
+    </Typography>
  </Box>
   )
 }
