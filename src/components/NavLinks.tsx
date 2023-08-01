@@ -1,25 +1,27 @@
-import { Box, Button } from "@mui/material"
+import { Box } from "@mui/material"
 
-import { pages } from "../utils/data"
+import { NavbarLink } from "../styles/Header.styled";
 
-import { INavLinksProps } from "../types"
+import { pages } from "../utils/data";
+
+import { INavLinksProps } from "../types";
 
 const NavLinks: React.FC<INavLinksProps> = ({ handleCloseNavMenu }) => {
   return (
     <>
-      <Box sx={{ display: { xs: "none", md: "flex" } }} mt={0.5} mr={1}>
-          {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ color: 'white', fontWeight: 700, letterSpacing: '.08rem', fontSize: { xs: "1rem", md: "0.8rem" }, '&:hover': { color: '#bbb' } }}
-              >
-                {page}
-              </Button>
-            ))}
+      <Box sx={{ display: { xs: "none", md: "flex", gap: "0.7rem" } }} mt={0.5} mr={1.2}>
+          {pages?.map((page) => (
+            <NavbarLink 
+            key={page.name}
+            to={page.path}
+            onClick={handleCloseNavMenu}
+            >
+             {page.name}
+            </NavbarLink>
+          ))}
         </Box>
     </>
   );
-};
 
+};
 export default NavLinks;

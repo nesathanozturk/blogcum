@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 
 import Blogs from "./pages/blogs";
+import Header from "./layouts/header";
+import Footer from "./layouts/footer";
 import HomePage from "./pages/home"
 import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
@@ -15,13 +17,15 @@ const App = () => {
     <>
     <Container>
       <GlobalStyles />
+      <Header />
       <Routes>
-        <Route path="/sign-in" element={<SignIn />} />
         <Route path="/" element={<HomePage />} />
+        <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <Footer />
     </Container>
     </>
   )

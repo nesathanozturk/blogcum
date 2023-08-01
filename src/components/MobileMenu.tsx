@@ -1,10 +1,10 @@
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import Typography from '@mui/material/Typography';
 
 import { pages } from '../utils/data';
 
 import { IMobileMenuProps } from '../types';
+import { NavbarLink } from '../styles/Header.styled';
 
 const MobileMenu: React.FC<IMobileMenuProps> = ({ isNavOpen, handleCloseNavMenu }) => {
   return (
@@ -26,8 +26,8 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({ isNavOpen, handleCloseNavMenu 
       sx={{ display: { xs: 'block', md: 'none' } }}
        >
         {pages.map((page) => (
-         <MenuItem key={page} onClick={handleCloseNavMenu}>
-            <Typography textAlign="center">{page}</Typography>
+         <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+            <NavbarLink to={page.path}>{page.name}</NavbarLink>
          </MenuItem>
         ))}
      </Menu>

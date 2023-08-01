@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import { breakpoints } from "../theme";
 
@@ -42,7 +43,7 @@ font-size: 1.3rem;
 }
 `;
 
-export const Link = styled.a`
+export const BtnLink = styled(Link)`
 position: relative;
 padding: 0.3em 0.6em;
 background: #fff;

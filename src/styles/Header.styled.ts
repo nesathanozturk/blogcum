@@ -1,7 +1,15 @@
-import { styled } from "@mui/material";
-import Toolbar from '@mui/material/Toolbar';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
-export const StyledToolbar = styled(Toolbar)({
-    display: "flex",
-    justifyContent: "space-between",
-});
+export const NavbarLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: #f32170;
+  }
+`;
