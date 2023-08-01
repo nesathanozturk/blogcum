@@ -44,7 +44,7 @@ font-size: 1.3rem;
 
 export const Link = styled.a`
 position: relative;
-padding: 0.4em 0.8em;
+padding: 0.3em 0.6em;
 background: #fff;
 color: #000;
 font-size: 1.1rem;
@@ -65,5 +65,6 @@ touch-action: manipulation;
 
 @media ${breakpoints.xl} {
     font-size: 1.3rem;
+    padding: 0.4em 0.8em;
 }
 `;
