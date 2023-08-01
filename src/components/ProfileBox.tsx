@@ -17,7 +17,6 @@ const ProfileBox = () => {
       <Box
         mt={4}
         sx={{
-          border: "1px solid #f8f8f222",
           borderRadius: "1rem",
           boxShadow: "0 0 10px #f8f8f222",
           textAlign: "center",
