@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 
-import Blogs from "./pages/blogs";
 import Header from "./layouts/header";
 import Footer from "./layouts/footer";
+
 import HomePage from "./pages/home"
+import Blogs from "./pages/blogs";
+import NotFoundPage from "./pages/not-found";
 import SignIn from "./pages/sign-in";
 import SignUp from "./pages/sign-up";
 import Profile from "./pages/profile";
@@ -24,6 +26,7 @@ const App = () => {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </Container>
