@@ -15,6 +15,7 @@ export const Section = styled.section`
 `;
 
 export const SectionTitle = styled(GradientText)`
+  margin-bottom: 0.5em;
   padding-left: 0.8em;
   font-size: 1.5rem;
   font-weight: 700;
