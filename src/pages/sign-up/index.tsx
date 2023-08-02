@@ -10,7 +10,7 @@ import {
   SignInLink,
 } from "../../styles/SignUp.styled";
 
-export default function SignUp() {
+const SignUp = () => {
   return (
     <SignUpSection>
       <FormContainer>
@@ -55,4 +55,6 @@ export default function SignUp() {
       </FormContainer>
     </SignUpSection>
   );
-}
+};
+
+export const SignUp;
