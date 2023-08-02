@@ -65,7 +65,7 @@ export const Input = styled.input`
 
   &::placeholder {
     color: #aaa;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   &:focus {
