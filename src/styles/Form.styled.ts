@@ -124,3 +124,14 @@ export const SignInLink = styled(Link)`
     text-decoration: underline;
   }
 `;
+
+export const ErrorMessage = styled.p`
+  margin-top: 0.8em;
+  color: #dc3545;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  @media ${breakpoints.lg} {
+    font-size: 1rem;
+  }
+`;
