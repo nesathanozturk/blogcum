@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavbarLink = styled(Link)`
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
@@ -12,4 +12,11 @@ export const NavbarLink = styled(Link)`
   &:hover {
     color: #f32170;
   }
+`;
+
+export const NavbarMobileLink = styled(NavbarLink)`
+  width: 100%;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 500;
 `;

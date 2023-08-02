@@ -4,7 +4,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { pages } from '../utils/data';
 
 import { IMobileMenuProps } from '../types';
-import { NavbarLink } from '../styles/Header.styled';
+
+import { NavbarMobileLink } from '../styles/Header.styled';
 
 const MobileMenu: React.FC<IMobileMenuProps> = ({ isNavOpen, handleCloseNavMenu }) => {
   return (
@@ -27,7 +28,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({ isNavOpen, handleCloseNavMenu 
        >
         {pages.map((page) => (
          <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-            <NavbarLink to={page.path}>{page.name}</NavbarLink>
+            <NavbarMobileLink to={page.path}>{page.name}</NavbarMobileLink>
          </MenuItem>
         ))}
      </Menu>

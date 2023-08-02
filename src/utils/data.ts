@@ -12,5 +12,3 @@ export const pages = [
     path: "/profile",
   },
 ];
-
-export const settings = ["Profil", "Çıkış Yap"];
