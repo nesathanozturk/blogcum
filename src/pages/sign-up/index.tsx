@@ -1,14 +1,9 @@
+import WithForm from "../../hoc/WithForm";
 import FormComponent from "../../components/FormComponent";
 
-import AuthContext from "../../context/AuthContext";
+import { ISignUpFunction } from "../../types";
 
-import useAuthContext from "../../hooks/use-context";
-
-import { IAuth } from "../../types";
-
-const SignUp = () => {
-  const { handleSignUp } = useAuthContext(AuthContext) as IAuth;
-
+const SignUp: React.FC<ISignUpFunction> = ({ handleSignUp }) => {
   return (
     <>
       <FormComponent
@@ -22,4 +17,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default WithForm(SignUp);

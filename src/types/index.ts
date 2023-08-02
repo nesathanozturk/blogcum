@@ -34,3 +34,10 @@ export interface IFormProp {
   link: string;
   linkText: string;
 }
+
+export interface ISignUpFunction {
+  handleSignUp: (email: string, password: string) => void;
+}
+export interface ISignInFunction {
+  handleSignIn: (email: string, password: string) => void;
+}
