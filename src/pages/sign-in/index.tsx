@@ -78,7 +78,7 @@ const SignIn = () => {
             />
             <ErrorMessage>{errors.password?.message}</ErrorMessage>
           </FormGroup>
-          <Button type="submit">Gönder</Button>
+          <Button type="submit">Giriş Yap</Button>
           <AccountMessage>
             Hesabınız yok mu? <SignInLink to="/sign-up">Kayıt olun!</SignInLink>
           </AccountMessage>
