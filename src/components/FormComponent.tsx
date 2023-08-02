@@ -2,9 +2,13 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import AuthContext from "../context/AuthContext";
+
+import useAuthContext from "../hooks/use-context";
+
 import { schema } from "../schemas";
 
-import { IForm, IFormProp } from "../types";
+import { IForm, IFormProp, IAuth } from "../types";
 
 import {
   FormSection,
@@ -26,6 +30,8 @@ const FormComponent: React.FC<IFormProp> = ({
   link,
   linkText,
 }) => {
+  const { setCurrentUser } = useAuthContext(AuthContext) as IAuth;
+
   const form = useForm({
     defaultValues: {
       username: "",
@@ -39,7 +45,9 @@ const FormComponent: React.FC<IFormProp> = ({
   const { errors } = formState;
 
   const onSubmit = (data: IForm) => {
-    const { email, password } = data;
+    const { username, email, password } = data;
+
+    setCurrentUser(data);
 
     handleForm(email, password);
   };

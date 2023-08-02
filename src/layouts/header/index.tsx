@@ -75,8 +75,8 @@ const Header = () => {
             <Tooltip title="Ayarları aç">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
-                  alt="Neşathan ÖZTÜRK"
-                  src="https://avatars.githubusercontent.com/u/107864503?v=4"
+                  alt="Kullanıcı fotoğrafı"
+                  src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png"
                 />
               </IconButton>
             </Tooltip>

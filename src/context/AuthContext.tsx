@@ -3,7 +3,7 @@ import {
   useSignInWithEmailAndPassword,
   useSignOut,
 } from "react-firebase-hooks/auth";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 import { auth } from "../config/firebase";
 
@@ -16,6 +16,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
   const [signOut] = useSignOut(auth);
+  const [currentUser, setCurrentUser] = useState<any>(null);
 
   const handleSignUp = async (email: string, password: string) => {
     try {
@@ -61,6 +62,8 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     handleSignUp,
     handleSignIn,
     handleSignOut,
+    currentUser,
+    setCurrentUser,
   };
 
   return (

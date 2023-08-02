@@ -11,7 +11,9 @@ import useAuthContext from "../hooks/use-context";
 import { IAuth } from "../types";
 
 const ProfileBox = () => {
-  const { handleSignOut } = useAuthContext(AuthContext) as IAuth;
+  const { handleSignOut, currentUser } = useAuthContext(AuthContext) as IAuth;
+
+  const { username, email } = currentUser;
 
   const ProfileContainer = styled("div")(({ theme }) => ({
     display: "flex",
@@ -26,40 +28,37 @@ const ProfileBox = () => {
         mt={4}
         sx={{
           borderRadius: "1rem",
-          boxShadow: "0 0 10px #f8f8f222",
+          boxShadow: "0 0 5px #f8f8f222",
           textAlign: "center",
         }}
       >
         <ProfileContainer>
           <Avatar
-            alt="Neşathan Öztürk"
-            src="https://avatars.githubusercontent.com/u/107864503?v=4"
+            alt={username}
+            src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png"
             sx={{ width: 100, height: 100, mb: 2 }}
           />
-          <Typography
-            component="h1"
-            mb={1}
-            fontWeight={800}
-            sx={{ fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.8rem" } }}
-          >
-            Neşathan Öztürk
-          </Typography>
-          <Typography
-            component="h2"
-            mb={2}
-            fontWeight={800}
-            sx={{ fontSize: { sm: "1.2rem", md: "1.5rem" } }}
-          >
-            Yazar
-          </Typography>
+          <Box mb={2}>
+            <Typography
+              component="h1"
+              mb={1}
+              fontWeight={800}
+              sx={{ fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.8rem" } }}
+            >
+              {username} | Yazar
+            </Typography>
+            <Typography component="h5" mb={1} fontWeight={800}>
+              {email}
+            </Typography>
+          </Box>
           <Typography
             variant="body1"
             mb={2}
             fontWeight={600}
             sx={{ fontSize: { sm: "0.96rem", md: "1.1rem" } }}
           >
-            Bloguma hoş geldiniz! Burada sizlerle düşüncelerimi ve deneyimlerimi
-            paylaşmaktan büyük bir keyif alıyorum.
+            Bloguma hoş geldiniz! <br /> Burada sizlerle düşüncelerimi ve
+            deneyimlerimi paylaşmaktan büyük bir keyif alıyorum.
           </Typography>
           <Stack
             direction={{ xs: "column", md: "row" }}
