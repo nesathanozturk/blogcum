@@ -1,15 +1,13 @@
-import Footer from "../../layouts/footer";
-import Header from "../../layouts/header";
+import WithComponents from "../../hoc/WithComponents";
+
 import Hero from "../../layouts/hero";
 
 const HomePage = () => {
   return (
     <>
-      <Header />
       <Hero />
-      <Footer />
     </>
   );
 };
 
-export default HomePage;
+export default WithComponents(HomePage);
