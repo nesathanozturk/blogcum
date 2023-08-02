@@ -21,9 +21,16 @@ export interface IForm {
   email: string;
   password: string;
 }
-
 export interface IAuth {
   handleSignUp: (email: string, password: string) => void;
   handleSignIn: (email: string, password: string) => void;
   handleSignOut: () => void;
+}
+
+export interface IFormProp {
+  handleForm: (email: string, password: string) => void;
+  formTitle: string;
+  altMessage: string;
+  link: string;
+  linkText: string;
 }
