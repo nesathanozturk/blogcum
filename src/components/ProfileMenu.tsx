@@ -3,12 +3,18 @@ import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 
-import { IProfileMenuProps } from "../types";
+import AuthContext from "../context/AuthContext";
+
+import useAuthContext from "../hooks/use-context";
+
+import { IProfileMenuProps, IAuth } from "../types";
 
 const ProfileMenu: React.FC<IProfileMenuProps> = ({
   isUserMenuOpen,
   handleCloseUserMenu,
 }) => {
+  const { handleSignOut } = useAuthContext(AuthContext) as IAuth;
+
   return (
     <>
       <Menu
@@ -33,7 +39,9 @@ const ProfileMenu: React.FC<IProfileMenuProps> = ({
           </Link>
         </MenuItem>
         <MenuItem onClick={handleCloseUserMenu}>
-          <Typography textAlign="center">Çıkış Yap</Typography>
+          <Typography onClick={handleSignOut} textAlign="center">
+            Çıkış Yap
+          </Typography>
         </MenuItem>
       </Menu>
     </>

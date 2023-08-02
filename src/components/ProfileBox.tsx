@@ -1,10 +1,17 @@
 import { Avatar, Typography, Box, Stack, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-
 import AddIcon from "@mui/icons-material/Add";
 import LogoutIcon from "@mui/icons-material/Logout";
 
+import AuthContext from "../context/AuthContext";
+
+import useAuthContext from "../hooks/use-context";
+
+import { IAuth } from "../types";
+
 const ProfileBox = () => {
+  const { handleSignOut } = useAuthContext(AuthContext) as IAuth;
+
   const ProfileContainer = styled("div")(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
@@ -65,10 +72,15 @@ const ProfileBox = () => {
             <Button variant="contained" endIcon={<AddIcon />}>
               Blog Yazısı Ekle
             </Button>
+            <Button
+              onClick={handleSignOut}
+              variant="contained"
+              color="error"
+              endIcon={<LogoutIcon />}
+            >
+              Çıkış Yap
+            </Button>
           </Stack>
-          <Button variant="contained" color="error" endIcon={<LogoutIcon />}>
-            Çıkış Yap
-          </Button>
         </ProfileContainer>
       </Box>
     </>

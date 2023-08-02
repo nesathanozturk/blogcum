@@ -13,5 +13,5 @@ export const schema = Yup.object({
     .email("Geçersiz email!"),
   password: Yup.string()
     .required("Şifre zorunludur!")
-    .min(8, "Şifre en az 8 karakterli olmalıdır!"),
+    .min(4, "Şifre en az 4 karakterli olmalıdır!"),
 });

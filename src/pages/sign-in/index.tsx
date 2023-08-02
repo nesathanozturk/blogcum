@@ -3,7 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import AuthContext from "../../context/AuthContext";
 
-import useAuthContext from "../../hooks/useContext";
+import useAuthContext from "../../hooks/use-context";
 
 import { schema } from "../../schemas";
 

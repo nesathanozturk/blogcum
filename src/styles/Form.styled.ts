@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { breakpoints } from "../theme";
 
 export const FormSection = styled.section`
-  margin-top: 2em;
   padding: 0.2em 0.8em;
 
   @media ${breakpoints.lg} {
@@ -17,7 +16,7 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #1c1b22;
-  margin: 0 auto;
+  margin: 3em auto;
   padding: 2.5em;
   border-radius: 0.625em;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);

@@ -1,8 +1,10 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useMatch } from "react-router-dom";
 
 import Header from "./layouts/header";
 import Footer from "./layouts/footer";
 
+import AuthPage from "./pages/auth";
+import MainPage from "./pages/main";
 import HomePage from "./pages/home";
 import Blogs from "./pages/blogs";
 import NotFoundPage from "./pages/not-found";
@@ -11,16 +13,16 @@ import SignUp from "./pages/sign-up";
 import Profile from "./pages/profile";
 
 import { Container } from "./styles/Container.styled";
-import { GlobalStyles } from "./styles/Global";
-import AuthPage from "./pages/auth";
-import MainPage from "./pages/main";
+import { GlobalStyles } from "./styles/Global.styled";
 
 const App = () => {
+  const searchRoute = useMatch("/sign-in") + useMatch("/sign-up");
+
   return (
     <>
       <Container>
         <GlobalStyles />
-        <Header />
+        {!searchRoute && <Header />}
         <Routes>
           <Route path="/" element={<AuthPage />}>
             <Route path="sign-up" element={<SignUp />} />
@@ -33,7 +35,7 @@ const App = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
-        <Footer />
+        {!searchRoute && <Footer />}
       </Container>
     </>
   );
