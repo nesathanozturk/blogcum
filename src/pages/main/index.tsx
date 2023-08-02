@@ -5,14 +5,14 @@ import Loading from "../../components/Loading";
 
 import { auth } from "../../config/firebase";
 
-const AuthPage = () => {
+const MainPage = () => {
   const [user, isLoading] = useAuthState(auth);
 
   if (isLoading) return <Loading />;
 
-  if (user) return <Navigate to="/" replace />;
+  if (!user) return <Navigate to="/sign-in" replace />;
 
   return <Outlet />;
 };
 
-export default AuthPage;
+export default MainPage;
