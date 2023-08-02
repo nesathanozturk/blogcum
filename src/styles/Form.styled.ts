@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { breakpoints } from "../theme";
 
-export const SignUpSection = styled.section`
+export const FormSection = styled.section`
   margin-top: 2em;
   padding: 0.2em 0.8em;
 

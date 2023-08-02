@@ -1,5 +1,5 @@
 import {
-  SignUpSection,
+  FormSection,
   FormContainer,
   Title,
   FormGroup,
@@ -8,11 +8,11 @@ import {
   Button,
   AccountMessage,
   SignInLink,
-} from "../../styles/SignUp.styled";
+} from "../../styles/Form.styled";
 
 const SignUp = () => {
   return (
-    <SignUpSection>
+    <FormSection>
       <FormContainer>
         <Title>Kayıt Ol</Title>
         <form>
@@ -49,12 +49,12 @@ const SignUp = () => {
           <Button type="submit">Gönder</Button>
           <AccountMessage>
             Zaten bir hesabınız var mı?{" "}
-            <SignInLink to="/sign-in">Giriş Yapın!</SignInLink>
+            <SignInLink to="/sign-in">Giriş yapın!</SignInLink>
           </AccountMessage>
         </form>
       </FormContainer>
-    </SignUpSection>
+    </FormSection>
   );
 };
 
-export const SignUp;
+export default SignUp;
