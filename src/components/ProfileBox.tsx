@@ -28,13 +28,28 @@ const ProfileBox = () => {
             src="https://avatars.githubusercontent.com/u/107864503?v=4"
             sx={{ width: 100, height: 100, mb: 2 }}
           />
-          <Typography variant="h4" component="h1" mb={2} fontWeight={800}>
+          <Typography
+            component="h1"
+            mb={2}
+            fontWeight={800}
+            sx={{ fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.8rem" } }}
+          >
             Neşathan Öztürk
           </Typography>
-          <Typography variant="h5" mb={2} fontWeight={800}>
+          <Typography
+            component="h2"
+            mb={2}
+            fontWeight={800}
+            sx={{ fontSize: { sm: "1.2rem", md: "1.5rem" } }}
+          >
             Yazar
           </Typography>
-          <Typography variant="body1" mb={2} fontWeight={600}>
+          <Typography
+            variant="body1"
+            mb={2}
+            fontWeight={600}
+            sx={{ fontSize: { sm: "0.96rem", md: "1.1rem" } }}
+          >
             Bloguma hoş geldiniz! Burada sizlerle düşüncelerimi ve deneyimlerimi
             paylaşmaktan büyük bir keyif alıyorum.
           </Typography>
