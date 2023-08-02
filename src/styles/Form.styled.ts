@@ -15,9 +15,9 @@ export const FormContainer = styled.div`
   max-width: 40rem;
   display: flex;
   flex-direction: column;
-  background-color: #1c1b22;
-  margin: 3em auto;
+  margin: 1.6em auto;
   padding: 2.5em;
+  background-color: #1c1b22;
   border-radius: 0.625em;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 `;
@@ -35,7 +35,7 @@ export const Title = styled.h2`
 
 export const FormGroup = styled.div`
   width: 100%;
-  margin-bottom: 1.25em;
+  margin-bottom: 2em;
 `;
 
 export const Label = styled.label`

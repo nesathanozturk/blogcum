@@ -72,15 +72,15 @@ const routes = [
           </Suspense>
         ),
       },
+      {
+        path: "*",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <NotFoundPage />
+          </Suspense>
+        ),
+      },
     ],
-  },
-  {
-    path: "*",
-    element: (
-      <Suspense fallback={<Loading />}>
-        <NotFoundPage />
-      </Suspense>
-    ),
   },
 ];
 
