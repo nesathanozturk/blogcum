@@ -17,6 +17,19 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     useCreateUserWithEmailAndPassword(auth);
   const [signOut] = useSignOut(auth);
 
+  const handleSignUp = async (email: string, password: string) => {
+    try {
+      await createUserWithEmailAndPassword(email, password);
+      alert("You have successfully signed up!");
+    } catch (error: any) {
+      if (error.code === "auth/email-already-in-use") {
+        alert("Cannot create user, email already in use");
+      } else {
+        console.log("user creation encountered an error", error);
+      }
+    }
+  };
+
   const handleSignIn = async (email: string, password: string) => {
     try {
       await signInWithEmailAndPassword(email, password);
@@ -31,19 +44,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
           break;
         default:
           console.log(error);
-      }
-    }
-  };
-
-  const handleSignUp = async (email: string, password: string) => {
-    try {
-      await createUserWithEmailAndPassword(email, password);
-      alert("You have successfully signed up!");
-    } catch (error: any) {
-      if (error.code === "auth/email-already-in-use") {
-        alert("Cannot create user, email already in use");
-      } else {
-        console.log("user creation encountered an error", error);
       }
     }
   };

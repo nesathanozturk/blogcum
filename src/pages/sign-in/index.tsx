@@ -1,9 +1,13 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import AuthContext from "../../context/AuthContext";
+
+import useAuthContext from "../../hooks/useContext";
+
 import { schema } from "../../schemas";
 
-import { IForm } from "../../types";
+import { IAuth, IForm } from "../../types";
 
 import {
   FormSection,
@@ -19,6 +23,8 @@ import {
 } from "../../styles/Form.styled";
 
 const SignIn = () => {
+  const { handleSignIn } = useAuthContext(AuthContext) as IAuth;
+
   const form = useForm({
     defaultValues: {
       username: "",
@@ -32,7 +38,9 @@ const SignIn = () => {
   const { errors } = formState;
 
   const onSubmit = (data: IForm) => {
-    console.log(data);
+    const { email, password } = data;
+
+    handleSignIn(email, password);
   };
 
   return (
