@@ -1,4 +1,4 @@
-export interface IProfileMenuProps { 
+export interface IProfileMenuProps {
   isUserMenuOpen: HTMLElement | null;
   handleCloseUserMenu: () => void;
 }
@@ -20,4 +20,10 @@ export interface IForm {
   username: string;
   email: string;
   password: string;
+}
+
+export interface IAuth {
+  handleSignUp: (email: string, password: string) => void;
+  handleSignIn: (email: string, password: string) => void;
+  handleSignOut: () => void;
 }
