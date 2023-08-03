@@ -1,8 +1,6 @@
 import { Avatar, Typography, Box, Stack, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import AddIcon from "@mui/icons-material/Add";
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Link } from "react-router-dom";
 
 import AuthContext from "../context/AuthContext";
 
@@ -66,9 +64,6 @@ const ProfileBox = () => {
             mt={2}
             mb={3}
           >
-            <Button variant="outlined" color="secondary" endIcon={<AddIcon />}>
-              Blog Yazısı Ekle
-            </Button>
             <Button
               onClick={handleSignOut}
               variant="outlined"
