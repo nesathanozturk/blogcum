@@ -1,13 +1,25 @@
 import AddIcon from "@mui/icons-material/Add";
 import { Stack, Button, Typography } from "@mui/material";
+import { useState } from "react";
 
 import WithComponents from "../../hoc/WithComponents";
 import PostPreview from "../../components/PostPreview";
 import Title from "../../components/Title";
+import BasicModal from "../../components/Modal";
 
 import { Section, BlogContainer } from "../../styles/Blog.styled";
 
 const Blogs = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleModalClose = () => {
+    setIsOpen(false);
+  };
+
+  const handleModalOpen = () => {
+    setIsOpen(true);
+  };
+
   return (
     <Section>
       <Stack
@@ -18,6 +30,7 @@ const Blogs = () => {
       >
         <Title title="Bloglar" />
         <Button
+          onClick={handleModalOpen}
           variant="outlined"
           color="secondary"
           endIcon={<AddIcon />}
@@ -49,6 +62,7 @@ const Blogs = () => {
         <PostPreview />
         <PostPreview />
       </BlogContainer>
+      <BasicModal isOpen={isOpen} handleModalClose={handleModalClose} />
     </Section>
   );
 };

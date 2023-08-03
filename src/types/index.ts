@@ -42,3 +42,8 @@ export interface ISignUpFunction {
 export interface ISignInFunction {
   handleSignIn: (email: string, password: string) => void;
 }
+
+export interface IModal {
+  isOpen: boolean;
+  handleModalClose: (isOpen: boolean) => void;
+}

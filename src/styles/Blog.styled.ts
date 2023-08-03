@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Box } from "@mui/material";
 
 import { GradientText } from "./Hero.styled";
 
@@ -98,5 +99,42 @@ export const ReadMore = styled(Link)`
   &:hover {
     color: #aaa;
     text-decoration: underline;
+  }
+`;
+
+export const UserBox = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+  marginBottom: "20px",
+});
+
+export const PostInput = styled.textarea`
+  width: 100%;
+  margin-top: 1em;
+  padding: 1em;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  resize: none;
+  min-height: 9.375rem;
+  outline: none;
+`;
+
+export const Input = styled.input`
+  width: 100%;
+  margin-bottom: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  outline: none;
+
+  @media ${breakpoints.sm} {
+    width: 8.438rem;
   }
 `;
