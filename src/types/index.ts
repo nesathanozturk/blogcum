@@ -47,3 +47,9 @@ export interface IModal {
   isOpen: boolean;
   handleModalClose: (isOpen: boolean) => void;
 }
+
+export interface IBlogs {
+  addBlog: () => void;
+  deleteBlog: (title: string) => void;
+  uploadImage: (title: string) => void;
+}
