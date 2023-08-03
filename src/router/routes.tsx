@@ -65,6 +65,14 @@ const routes = [
         ),
       },
       {
+        path: "blogs/:id",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Blogs />
+          </Suspense>
+        ),
+      },
+      {
         path: "profile",
         element: (
           <Suspense fallback={<Loading />}>
