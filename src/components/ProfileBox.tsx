@@ -66,14 +66,6 @@ const ProfileBox = () => {
             mt={2}
             mb={3}
           >
-            <Button variant="outlined" color="warning">
-              <Link
-                style={{ textDecoration: "none", color: "#DF6603" }}
-                to="/blogs"
-              >
-                Diğer Bloglara Bak
-              </Link>
-            </Button>
             <Button variant="outlined" color="secondary" endIcon={<AddIcon />}>
               Blog Yazısı Ekle
             </Button>
