@@ -9,6 +9,7 @@ const SignIn = lazy(() => import("../pages/sign-in"));
 const MainPage = lazy(() => import("../pages/main"));
 const HomePage = lazy(() => import("../pages/home"));
 const Blogs = lazy(() => import("../pages/blogs"));
+const BlogDetail = lazy(() => import("../pages/blog-detail"));
 const Profile = lazy(() => import("../pages/profile"));
 const NotFoundPage = lazy(() => import("../pages/not-found"));
 
@@ -68,7 +69,7 @@ const routes = [
         path: "blogs/:id",
         element: (
           <Suspense fallback={<Loading />}>
-            <Blogs />
+            <BlogDetail />
           </Suspense>
         ),
       },
