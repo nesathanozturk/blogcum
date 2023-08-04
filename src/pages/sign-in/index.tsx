@@ -1,6 +1,5 @@
-import React from "react";
-
 import WithForm from "../../hoc/WithForm";
+
 import FormComponent from "../../components/FormComponent";
 
 import { ISignInFunction } from "../../types";

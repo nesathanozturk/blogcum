@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import AuthContext from "../context/AuthContext";
 
-import useAuthContext from "../hooks/use-context";
+import useAuthContext from "../hooks/use-auth-context";
 
 import { IProfileMenuProps, IAuth } from "../types";
 

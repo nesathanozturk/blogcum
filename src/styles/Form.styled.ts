@@ -3,14 +3,6 @@ import { Link } from "react-router-dom";
 
 import { breakpoints } from "../theme";
 
-export const FormSection = styled.section`
-  padding: 0.2em 0.8em;
-
-  @media ${breakpoints.lg} {
-    padding-left: 1.6em;
-  }
-`;
-
 export const FormContainer = styled.div`
   max-width: 40rem;
   display: flex;
@@ -57,7 +49,7 @@ export const Input = styled.input`
   background-color: #2c2b33;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   font-size: 0.9rem;
   letter-spacing: 0.07rem;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -84,7 +76,7 @@ export const Button = styled.button`
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.313rem;
   font-size: 1rem;
   font-weight: 800;
   cursor: pointer;

@@ -1,3 +1,9 @@
+import { Link } from "react-router-dom";
+
+import { IBlogProps } from "../types";
+
+import noImage from "../assets/no-image.png";
+
 import {
   Post,
   ImageWrapper,
@@ -9,31 +15,27 @@ import {
   ReadMore,
 } from "../styles/Blog.styled";
 
-const PostPreview = () => {
+const PostPreview: React.FC<IBlogProps> = ({ blog }) => {
+  const image = blog.image === "" ? noImage : blog.image;
+
   return (
-    <>
+    <Link to={`${blog?.id}`} style={{ textDecoration: "none" }}>
       <Post>
         <ImageWrapper>
-          <PostImage
-            src="https://picsum.photos/200/300?"
-            alt="Blog Card Image"
-          />
+          <PostImage src={image} alt={blog?.title} />
         </ImageWrapper>
         <PostBodyContainer>
           <div>
-            <PostTitle>Denizler</PostTitle>
-            <PostDescription>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem,
-              ut!
-            </PostDescription>
+            <PostTitle>{blog?.title}</PostTitle>
+            <PostDescription>{blog?.description}</PostDescription>
           </div>
           <div>
-            <PostAuthor>Neşathan Öztürk</PostAuthor>
-            <ReadMore to="/">Read More</ReadMore>
+            <PostAuthor>{blog?.author}</PostAuthor>
+            <ReadMore to={`${blog?.id}`}>Read More</ReadMore>
           </div>
         </PostBodyContainer>
       </Post>
-    </>
+    </Link>
   );
 };
 

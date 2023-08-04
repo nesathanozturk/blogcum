@@ -3,7 +3,7 @@ import {
   useSignInWithEmailAndPassword,
   useSignOut,
 } from "react-firebase-hooks/auth";
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 import { auth } from "../config/firebase";
 
@@ -16,17 +16,16 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
   const [signOut] = useSignOut(auth);
-  const [currentUser, setCurrentUser] = useState<any>(null);
 
   const handleSignUp = async (email: string, password: string) => {
     try {
       await createUserWithEmailAndPassword(email, password);
-      alert("You have successfully signed up!");
+      alert("Başarılı bir şekilde kayıt oldunuz!");
     } catch (error: any) {
       if (error.code === "auth/email-already-in-use") {
-        alert("Cannot create user, email already in use");
+        alert("Bu email adresi zaten kullanılıyor!");
       } else {
-        console.log("user creation encountered an error", error);
+        console.log(error);
       }
     }
   };
@@ -34,14 +33,14 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   const handleSignIn = async (email: string, password: string) => {
     try {
       await signInWithEmailAndPassword(email, password);
-      alert("You have successfully signed in!");
+      alert("Başarılı bir şekilde giriş yaptınız!");
     } catch (error: any) {
       switch (error.code) {
         case "auth/wrong-password":
-          alert("incorrect password for email");
+          alert("Email için geçersiz şifre!");
           break;
         case "auth/user-not-found":
-          alert("no user associated with this email");
+          alert("Bu email adresi ile kayıtlı bir kullanıcı bulunamadı!");
           break;
         default:
           console.log(error);
@@ -52,7 +51,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
   const handleSignOut = async () => {
     try {
       await signOut();
-      alert("You are sign out!");
+      alert("Çıkış yaptınız!");
     } catch (error) {
       console.log(error);
     }
@@ -62,8 +61,6 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     handleSignUp,
     handleSignIn,
     handleSignOut,
-    currentUser,
-    setCurrentUser,
   };
 
   return (

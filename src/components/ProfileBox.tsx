@@ -1,18 +1,9 @@
-import { Avatar, Typography, Box, Stack, Button } from "@mui/material";
+import { Avatar, Typography, Box, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import LogoutIcon from "@mui/icons-material/Logout";
 
-import AuthContext from "../context/AuthContext";
-
-import useAuthContext from "../hooks/use-context";
-
-import { IAuth } from "../types";
+import { auth } from "../config/firebase";
 
 const ProfileBox = () => {
-  const { handleSignOut, currentUser } = useAuthContext(AuthContext) as IAuth;
-
-  const { username, email } = currentUser;
-
   const ProfileContainer = styled("div")(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
@@ -32,7 +23,7 @@ const ProfileBox = () => {
       >
         <ProfileContainer>
           <Avatar
-            alt={username}
+            alt="wqeqwe"
             src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png"
             sx={{ width: 100, height: 100, mb: 2 }}
           />
@@ -43,10 +34,15 @@ const ProfileBox = () => {
               fontWeight={800}
               sx={{ fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.8rem" } }}
             >
-              {username} | Yazar
+              {auth?.currentUser.email}
             </Typography>
-            <Typography component="h5" mb={1} fontWeight={800}>
-              {email}
+            <Typography
+              component="h2"
+              mb={1}
+              fontWeight={800}
+              sx={{ fontSize: { xs: "1rem", sm: "1.2rem", md: "1.4rem" } }}
+            >
+              Yazar
             </Typography>
           </Box>
           <Typography
@@ -63,16 +59,7 @@ const ProfileBox = () => {
             spacing={2}
             mt={2}
             mb={3}
-          >
-            <Button
-              onClick={handleSignOut}
-              variant="outlined"
-              color="error"
-              endIcon={<LogoutIcon />}
-            >
-              Çıkış Yap
-            </Button>
-          </Stack>
+          ></Stack>
         </ProfileContainer>
       </Box>
     </>

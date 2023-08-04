@@ -1,4 +1,5 @@
 import WithForm from "../../hoc/WithForm";
+
 import FormComponent from "../../components/FormComponent";
 
 import { ISignUpFunction } from "../../types";

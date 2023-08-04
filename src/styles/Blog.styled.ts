@@ -3,16 +3,12 @@ import styled from "styled-components";
 import { Box } from "@mui/material";
 
 import { GradientText } from "./Hero.styled";
+import { PageContainer } from "./Container.styled";
 
 import { breakpoints } from "../theme";
 
-export const Section = styled.section`
-  padding: 0.2em 0.8em;
+export const Section = styled(PageContainer)`
   margin-top: 2em;
-
-  @media ${breakpoints.lg} {
-    padding-left: 1.6em;
-  }
 `;
 
 export const SectionTitle = styled(GradientText)`
@@ -40,7 +36,7 @@ export const Post = styled.div`
   padding: 1em;
   color: #fff;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 
@@ -50,14 +46,17 @@ export const Post = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  height: 200px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 0.5rem;
+
+  @media ${breakpoints.xl} {
+    height: 12.5rem;
+  }
 `;
 
 export const PostImage = styled.img`
   width: 100%;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 `;
 
 export const PostBodyContainer = styled.div`
@@ -105,8 +104,8 @@ export const ReadMore = styled(Link)`
 export const UserBox = styled(Box)({
   display: "flex",
   alignItems: "center",
-  gap: "10px",
-  marginBottom: "20px",
+  gap: "0.625rem",
+  marginBottom: "1.25em",
 });
 
 export const PostInput = styled.textarea`
@@ -117,7 +116,7 @@ export const PostInput = styled.textarea`
   color: #fff;
   font-size: 1rem;
   border: 1px solid #444;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   resize: none;
   min-height: 9.375rem;
   outline: none;
@@ -126,15 +125,20 @@ export const PostInput = styled.textarea`
 export const Input = styled.input`
   width: 100%;
   margin-bottom: 0.5em;
-  padding: 0.5em 1em;
+  padding: 0.8em 1em;
   background-color: #333;
   color: #fff;
   font-size: 0.9rem;
   border: 1px solid #444;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   outline: none;
+`;
+
+export const UsernameInput = styled(Input)`
+  padding: 0.7em 1em;
+  margin-bottom: 0;
 
   @media ${breakpoints.sm} {
-    width: 8.438rem;
+    width: 11rem;
   }
 `;

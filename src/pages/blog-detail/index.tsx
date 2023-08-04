@@ -1,4 +1,14 @@
+import { useParams } from "react-router-dom";
+
 import WithComponents from "../../hoc/WithComponents";
+
+import BlogContext from "../../context/BlogContext";
+
+import useBlogContext from "../../hooks/use-blog-context";
+
+import { IBlogs } from "../../types";
+
+import noImage from "../../assets/no-image.png";
 
 import {
   BlogDetailContainer,
@@ -7,21 +17,25 @@ import {
   BlogTitle,
   BlogDescription,
   BlogAuthor,
-} from "../../styles/BlogDetail";
+} from "../../styles/BlogDetail.styled";
 
 const BlogDetail = () => {
+  const { blogs } = useBlogContext(BlogContext) as IBlogs;
+
+  const { id } = useParams<{ id: string }>();
+
+  const blog = blogs?.find((blog) => blog.id === id);
+
+  const image = blog?.image === "" ? noImage : blog?.image;
+
   return (
     <BlogDetailContainer>
       <BlogImageWrapper>
-        <Image src="https://picsum.photos/960/400" alt="wqqweew" />
+        <Image src={image} alt={blog?.title} />
       </BlogImageWrapper>
-      <BlogTitle>Denizler</BlogTitle>
-      <BlogDescription>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-        beatae inventore molestias repellendus autem! Sed velit animi quaerat
-        odit consequuntur!
-      </BlogDescription>
-      <BlogAuthor>Yazar: nesathanozturk</BlogAuthor>
+      <BlogTitle>{blog?.title}</BlogTitle>
+      <BlogDescription>{blog?.description}</BlogDescription>
+      <BlogAuthor>Yazar: {blog?.author}</BlogAuthor>
     </BlogDetailContainer>
   );
 };

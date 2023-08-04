@@ -2,16 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import AuthContext from "../context/AuthContext";
-
-import useAuthContext from "../hooks/use-context";
-
 import { schema } from "../schemas";
 
-import { IForm, IFormProp, IAuth } from "../types";
+import { IForm, IFormProp } from "../types";
 
 import {
-  FormSection,
   FormContainer,
   Title,
   FormGroup,
@@ -22,6 +17,7 @@ import {
   SignInLink,
   ErrorMessage,
 } from "../styles/Form.styled";
+import { PageContainer } from "../styles/Container.styled";
 
 const FormComponent: React.FC<IFormProp> = ({
   handleForm,
@@ -30,8 +26,6 @@ const FormComponent: React.FC<IFormProp> = ({
   link,
   linkText,
 }) => {
-  const { setCurrentUser } = useAuthContext(AuthContext) as IAuth;
-
   const form = useForm({
     defaultValues: {
       username: "",
@@ -45,16 +39,14 @@ const FormComponent: React.FC<IFormProp> = ({
   const { errors } = formState;
 
   const onSubmit = (data: IForm) => {
-    const { username, email, password } = data;
-
-    setCurrentUser(data);
+    const { email, password } = data;
 
     handleForm(email, password);
   };
 
   return (
     <>
-      <FormSection>
+      <PageContainer>
         <FormContainer>
           <Title>{formTitle}</Title>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -94,7 +86,7 @@ const FormComponent: React.FC<IFormProp> = ({
             </AccountMessage>
           </form>
         </FormContainer>
-      </FormSection>
+      </PageContainer>
     </>
   );
 };

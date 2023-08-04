@@ -65,7 +65,7 @@ export const BtnLink = styled(Link)`
   }
 
   @media ${breakpoints.xl} {
-    font-size: 1.3rem;
     padding: 0.4em 0.8em;
+    font-size: 1.3rem;
   }
 `;

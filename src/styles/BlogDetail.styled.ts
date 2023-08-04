@@ -24,7 +24,12 @@ export const BlogImageWrapper = styled.div`
 
 export const Image = styled.img`
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 1rem;
+
+  @media ${breakpoints.xl} {
+    width: 100%;
+    height: 31.25rem;
+  }
 `;
 
 export const BlogTitle = styled.h1`

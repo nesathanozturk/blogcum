@@ -11,6 +11,12 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
   isNavOpen,
   handleCloseNavMenu,
 }) => {
+  const renderedPages = pages.map((page) => (
+    <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+      <NavbarMobileLink to={page.path}>{page.name}</NavbarMobileLink>
+    </MenuItem>
+  ));
+
   return (
     <>
       <Menu
@@ -29,11 +35,7 @@ const MobileMenu: React.FC<IMobileMenuProps> = ({
         onClose={handleCloseNavMenu}
         sx={{ display: { xs: "block", md: "none" } }}
       >
-        {pages.map((page) => (
-          <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-            <NavbarMobileLink to={page.path}>{page.name}</NavbarMobileLink>
-          </MenuItem>
-        ))}
+        {renderedPages}
       </Menu>
     </>
   );

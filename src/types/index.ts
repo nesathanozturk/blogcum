@@ -25,7 +25,6 @@ export interface IAuth {
   handleSignUp: (email: string, password: string) => void;
   handleSignIn: (email: string, password: string) => void;
   handleSignOut: () => void;
-  currentUser: any;
 }
 
 export interface IFormProp {
@@ -44,12 +43,26 @@ export interface ISignInFunction {
 }
 
 export interface IModal {
-  isOpen: boolean;
-  handleModalClose: (isOpen: boolean) => void;
+  isModalOpen: boolean;
+  handleModalClose: (isModalOpen: boolean) => void;
+}
+
+export interface IBlog {
+  id: string;
+  author: string;
+  title: string;
+  image: string;
+  description: string;
 }
 
 export interface IBlogs {
+  blogs: IBlog[];
+  setBlogAuthor: (blogAuthor: string) => void;
+  setBlogTitle: (blogTitle: string) => void;
+  setBlogImage: (blogImage: string) => void;
+  setBlogDescription: (blogDescription: string) => void;
   addBlog: () => void;
-  deleteBlog: (title: string) => void;
-  uploadImage: (title: string) => void;
+}
+export interface IBlogProps {
+  blog: IBlog;
 }

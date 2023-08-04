@@ -2,7 +2,7 @@ import React from "react";
 
 import AuthContext from "../context/AuthContext";
 
-import useAuthContext from "../hooks/use-context";
+import useAuthContext from "../hooks/use-auth-context";
 
 import { IAuth } from "../types";
 
@@ -21,4 +21,5 @@ const WithForm = (WrappedComponent: React.FC) => {
   };
   return NewComponent;
 };
+
 export default WithForm;

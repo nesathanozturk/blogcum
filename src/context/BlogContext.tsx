@@ -1,14 +1,9 @@
-import {
-  doc,
-  addDoc,
-  collection,
-  deleteDoc,
-  onSnapshot,
-} from "firebase/firestore";
+import { getDocs, collection, addDoc } from "firebase/firestore";
 import { useState, useEffect, createContext } from "react";
+import { v4 as uuidv4 } from "uuid";
+import toast from "react-hot-toast";
 
-import { db, storage } from "../config/firebase";
-import { ref, uploadBytes } from "firebase/storage";
+import { db } from "../config/firebase";
 
 import { IBlogs } from "../types";
 
@@ -17,8 +12,8 @@ const BlogContext = createContext<IBlogs | null>(null);
 function BlogProvider({ children }: { children: React.ReactNode }) {
   const [blogs, setBlogs] = useState<string[]>([]);
   const [blogAuthor, setBlogAuthor] = useState<string>("");
-  const [blogImage, setBlogImage] = useState<null>(null);
   const [blogTitle, setBlogTitle] = useState<string>("");
+  const [blogImage, setBlogImage] = useState<string>("");
   const [blogDescription, setBlogDescription] = useState<string>("");
 
   const blogsCollectionRef = collection(db, "blogs");
@@ -26,53 +21,51 @@ function BlogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const getBlogs = async () => {
       try {
-        await onSnapshot(blogsCollectionRef, (snapshot) => {
-          const dbBlogs = [];
-          snapshot.forEach((doc) => {
-            dbBlogs.push({ ...doc.data(), id: doc.id });
-          });
-          setBlogs(dbBlogs);
-        });
-      } catch (error) {
-        throw new Error(error);
+        const data = await getDocs(blogsCollectionRef);
+        const filteredData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setBlogs(filteredData);
+      } catch (err) {
+        console.log("Bir hata var!", err);
       }
     };
     getBlogs();
-  });
+  }, []);
+
+  const notify = () =>
+    toast.success("Yazı başarıyla oluşturuldu!", {
+      position: "top-right",
+    });
 
   const addBlog = async () => {
+    if (!blogAuthor || !blogTitle || !blogImage || !blogDescription) {
+      alert("Lütfen tüm alanları doldurunuz.");
+      return;
+    }
+
     try {
       await addDoc(blogsCollectionRef, {
+        id: uuidv4().toString(),
         author: blogAuthor,
-        image: blogImage,
         title: blogTitle,
+        image: blogImage,
         description: blogDescription,
       });
+      notify();
     } catch (error) {
-      throw new Error(error);
+      console.log("Bir hata var!", error);
     }
   };
 
-  const deleteBlog = async (title: string) => {
-    const blogDoc = doc(db, "blogs", title);
-    await deleteDoc(blogDoc);
-  };
-
-  const uploadImage = async () => {
-    if (!blogImage) return;
-
-    try {
-      const filesFolderRef = ref(storage, `projectImages/${blogImage}`);
-      await uploadBytes(filesFolderRef, blogImage);
-    } catch (error) {
-      throw new Error(error);
-    }
-  };
-
-  const valueToShare = {
+  const valueToShare: IBlogs = {
+    blogs,
+    setBlogAuthor,
+    setBlogImage,
+    setBlogTitle,
+    setBlogDescription,
     addBlog,
-    deleteBlog,
-    uploadImage,
   };
 
   return (

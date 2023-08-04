@@ -24,7 +24,7 @@ const Hero = () => {
         Bilgiye doyacağınız, eğlenceli ve aydınlatıcı bir okuma deneyimi için
         hemen başlayın!
       </Typography>
-      <BtnLink title="Başlayın!" to="/profile">
+      <BtnLink title="Başlayın!" to="/blogs">
         Başlayın!
       </BtnLink>
     </Section>
