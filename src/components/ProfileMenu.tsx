@@ -1,7 +1,6 @@
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
 
 import AuthContext from "../context/AuthContext";
 
@@ -33,11 +32,6 @@ const ProfileMenu: React.FC<IProfileMenuProps> = ({
         open={Boolean(isUserMenuOpen)}
         onClose={handleCloseUserMenu}
       >
-        <MenuItem onClick={handleCloseUserMenu}>
-          <Link style={{ color: "#000", textDecoration: "none" }} to="/profile">
-            Profil
-          </Link>
-        </MenuItem>
         <MenuItem onClick={handleCloseUserMenu}>
           <Typography onClick={handleSignOut} textAlign="center">
             Çıkış Yap
