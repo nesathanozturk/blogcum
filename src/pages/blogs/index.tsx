@@ -1,5 +1,5 @@
 import AddIcon from "@mui/icons-material/Add";
-import { Stack, Button, Typography } from "@mui/material";
+import { Stack, Button, Typography, Box } from "@mui/material";
 import { Toaster } from "react-hot-toast";
 
 import WithComponents from "../../hoc/WithComponents";
@@ -55,18 +55,20 @@ const Blogs = () => {
           </Button>
         </Stack>
         <BlogContainer>
-          {blogs?.length < 0 ? (
+          {blogs?.length > 0 ? (
+            blogs?.map((blog) => <PostPreview key={blog.id} blog={blog} />)
+          ) : (
             <Typography
               component="p"
               sx={{
-                marginTop: "0.2em",
-                fontSize: { xs: "0.8rem", sm: "0.9rem" },
+                marginTop: "1em",
+                fontSize: { xs: "1rem", sm: "1.3rem" },
+                fontWeight: "bold",
+                paddingLeft: { xs: "1.1em", sm: "0.7em" },
               }}
             >
-              Henüz yazı eklenmemiş.
+              Henüz hiç yazı eklenmemiş.
             </Typography>
-          ) : (
-            blogs?.map((blog) => <PostPreview key={blog.id} blog={blog} />)
           )}
         </BlogContainer>
         <BasicModal
