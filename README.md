@@ -22,11 +22,11 @@
 
 ```bash
 # Install dependencies
-npm install
+yarn install
 
-# Serve on localhost:3000
-npm start
+# Run the development server
+yarn dev
 
 # Build for production
-npm run build
+yarn build
 ```
