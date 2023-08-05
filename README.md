@@ -17,3 +17,16 @@
 - Icons for MUI Icons
 - Toast for React Hot Toast
 - uuid for unique id
+
+## 🚀 Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Serve on localhost:3000
+npm start
+
+# Build for production
+npm run build
+```
