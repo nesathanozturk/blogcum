@@ -45,6 +45,7 @@ export interface ISignInFunction {
 export interface IModal {
   isModalOpen: boolean;
   handleModalClose: (isModalOpen: boolean) => void;
+  setIsModalOpen: (isModalOpen: boolean) => void;
 }
 
 export interface IBlog {
@@ -70,4 +71,11 @@ export interface IBlogProps {
 export interface IWithForm {
   handleSignUp: (email: string, password: string) => void;
   handleSignIn: (email: string, password: string) => void;
+}
+
+export interface IModalButtonProps {
+  handleClick: () => void;
+  bgColor: string;
+  hoverBgColor: string;
+  buttonText: string;
 }

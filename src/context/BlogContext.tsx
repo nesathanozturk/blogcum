@@ -1,4 +1,4 @@
-import { getDocs, collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, onSnapshot } from "firebase/firestore";
 import { useState, useEffect, createContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
@@ -20,19 +20,18 @@ function BlogProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const getBlogs = async () => {
-      try {
-        const data = await getDocs(blogsCollectionRef);
-        const filteredData = data.docs.map((doc) => ({
+      const blogsCollectionRef = collection(db, "blogs");
+      const unsubscribe = onSnapshot(blogsCollectionRef, (snapshot) => {
+        const updatedBlogs = snapshot.docs.map((doc) => ({
           id: doc.id,
           author: doc.data().author,
           title: doc.data().title,
           image: doc.data().image,
           description: doc.data().description,
         }));
-        setBlogs(filteredData);
-      } catch (err) {
-        console.log("Bir hata var!", err);
-      }
+        setBlogs(updatedBlogs);
+      });
+      return () => unsubscribe(); //
     };
     getBlogs();
   }, []);

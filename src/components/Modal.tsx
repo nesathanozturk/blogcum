@@ -1,6 +1,8 @@
 import React from "react";
-import { Box, Typography, Avatar, Stack, Button } from "@mui/material";
+import { Box, Typography, Avatar, Stack } from "@mui/material";
 import Modal from "@mui/material/Modal";
+
+import ModalButton from "./ModalButton";
 
 import useBlogContext from "../hooks/use-blog-context";
 
@@ -15,7 +17,11 @@ import {
 
 import avatar from "../assets/avatar.webp";
 
-const BasicModal: React.FC<IModal> = ({ isModalOpen, handleModalClose }) => {
+const BasicModal: React.FC<IModal> = ({
+  isModalOpen,
+  handleModalClose,
+  setIsModalOpen,
+}) => {
   const {
     addBlog,
     setBlogAuthor,
@@ -90,29 +96,18 @@ const BasicModal: React.FC<IModal> = ({ isModalOpen, handleModalClose }) => {
             gap={2}
             mt={3}
           >
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#434C5A",
-                fontWeight: 600,
-                padding: "0.5em 1em",
-                "&:hover": { backgroundColor: "#363e49" },
-              }}
-            >
-              İptal et
-            </Button>
-            <Button
-              onClick={addBlog}
-              variant="contained"
-              sx={{
-                backgroundColor: "#51A1BE",
-                fontWeight: 600,
-                padding: "0.5em 1em",
-                "&:hover": { backgroundColor: "#468fa8" },
-              }}
-            >
-              Oluştur
-            </Button>
+            <ModalButton
+              handleClick={() => setIsModalOpen(false)}
+              bgColor="#434C5A"
+              hoverBgColor="#363e49"
+              buttonText="İptal et"
+            />
+            <ModalButton
+              handleClick={addBlog}
+              bgColor="#51A1BE"
+              hoverBgColor="#468fa8"
+              buttonText="Oluştur"
+            />
           </Stack>
         </Box>
       </Modal>

@@ -38,6 +38,7 @@ const useToggle = () => {
     handleCloseNavMenu,
     handleCloseUserMenu,
     isModalOpen,
+    setIsModalOpen,
     handleModalClose,
     handleModalOpen,
   };

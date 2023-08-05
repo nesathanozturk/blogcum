@@ -2,7 +2,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { Stack, Button, Typography } from "@mui/material";
 import { Toaster } from "react-hot-toast";
 
-import WithComponents from "../../hoc/WithComponents";
+import Header from "../../layouts/header";
 
 import PostPreview from "../../components/PostPreview";
 import Title from "../../components/Title";
@@ -18,10 +18,12 @@ import { Section, BlogContainer } from "../../styles/Blog.styled";
 const Blogs = () => {
   const { blogs } = useBlogContext() as IBlogs;
 
-  const { isModalOpen, handleModalOpen, handleModalClose } = useToggle();
+  const { isModalOpen, setIsModalOpen, handleModalOpen, handleModalClose } =
+    useToggle();
 
   return (
     <>
+      <Header />
       <Section>
         <Stack
           direction="row"
@@ -72,6 +74,7 @@ const Blogs = () => {
         <BasicModal
           isModalOpen={isModalOpen}
           handleModalClose={handleModalClose}
+          setIsModalOpen={setIsModalOpen}
         />
       </Section>
       <Toaster />
@@ -79,4 +82,4 @@ const Blogs = () => {
   );
 };
 
-export default WithComponents(Blogs);
+export default Blogs;
