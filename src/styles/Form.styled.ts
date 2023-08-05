@@ -7,11 +7,15 @@ export const FormContainer = styled.div`
   max-width: 40rem;
   display: flex;
   flex-direction: column;
-  margin: 1.7em auto;
+  margin: 8em auto;
   padding: 2.5em;
   background-color: #1c1b22;
   border-radius: 0.625em;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+  @media ${breakpoints.lg} {
+    margin: 1.7em auto;
+  }
 `;
 
 export const Title = styled.h2`
