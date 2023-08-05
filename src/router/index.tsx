@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import type { RouteObject } from "react-router";
+import { RouteObject } from "react-router";
 
 import WithLoading from "../hoc/WithLoading";
 

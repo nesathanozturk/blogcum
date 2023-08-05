@@ -31,7 +31,7 @@ function BlogProvider({ children }: { children: React.ReactNode }) {
         }));
         setBlogs(updatedBlogs);
       });
-      return () => unsubscribe(); //
+      return () => unsubscribe();
     };
     getBlogs();
   }, []);

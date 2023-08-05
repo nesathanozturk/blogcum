@@ -29,10 +29,18 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
       if (typeof error === "object" && error !== null) {
         const firebaseError = error as FirebaseError;
 
-        if (firebaseError.code === "auth/email-already-in-use") {
-          alert("Bu email adresi zaten kullanılıyor!");
-        } else {
-          console.log(error);
+        switch (firebaseError.code) {
+          case "auth/email-already-in-use":
+            alert("Bu email adresi ile kayıtlı bir kullanıcı bulunmaktadır!");
+            break;
+          case "auth/invalid-email":
+            alert("Geçersiz bir email adresi girdiniz!");
+            break;
+          case "auth/weak-password":
+            alert("Şifreniz çok kısa!");
+            break;
+          default:
+            console.log(error);
         }
       } else {
         console.log(error);
