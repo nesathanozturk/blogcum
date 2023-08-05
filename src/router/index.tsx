@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 
 import Loading from "../components/Loading";
+import type { RouteObject } from "react-router";
 
 const AuthPage = lazy(() => import("../pages/auth"));
 const SignUp = lazy(() => import("../pages/sign-up"));
@@ -13,7 +14,7 @@ const BlogDetail = lazy(() => import("../pages/blog-detail"));
 const Profile = lazy(() => import("../pages/profile"));
 const NotFoundPage = lazy(() => import("../pages/not-found"));
 
-const routes = [
+const routes: RouteObject[] = [
   {
     path: "/",
     element: (
