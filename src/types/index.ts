@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { RouteObject } from "react-router-dom";
 
 export interface IProfileMenuProps {
   isUserMenuOpen: HTMLElement | null;
@@ -89,11 +88,4 @@ export interface Props {
 
 export interface State {
   hasError: boolean;
-}
-
-export interface Route {
-  path: string;
-  element: React.ReactNode;
-  index?: boolean;
-  children?: RouteObject[];
 }
