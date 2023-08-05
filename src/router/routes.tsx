@@ -57,7 +57,7 @@ const routes: RouteObject[] = [
     children: [
       {
         path: "",
-        index: true,
+        index: false,
         element: (
           <Suspense fallback={<Loading />}>
             <HomePage />
