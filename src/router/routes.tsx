@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+
 import Loading from "../components/Loading";
 
 const AuthPage = lazy(() => import("../pages/auth"));
@@ -12,23 +13,9 @@ const BlogDetail = lazy(() => import("../pages/blog-detail"));
 const Profile = lazy(() => import("../pages/profile"));
 const NotFoundPage = lazy(() => import("../pages/not-found"));
 
-interface RouteObject {
-  path: string;
-  element: React.ReactNode;
-  children?: RouteObject[];
-}
-
-const routes: RouteObject[] = [
+const routes = [
   {
     path: "/",
-    element: (
-      <Suspense fallback={<Loading />}>
-        <HomePage />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/auth",
     element: (
       <Suspense fallback={<Loading />}>
         <AuthPage />
@@ -54,7 +41,7 @@ const routes: RouteObject[] = [
     ],
   },
   {
-    path: "/main",
+    path: "/",
     element: (
       <Suspense fallback={<Loading />}>
         <MainPage />
@@ -63,6 +50,7 @@ const routes: RouteObject[] = [
     children: [
       {
         path: "",
+        index: true,
         element: (
           <Suspense fallback={<Loading />}>
             <HomePage />
