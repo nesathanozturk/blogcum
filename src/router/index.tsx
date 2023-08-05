@@ -1,94 +1,58 @@
-import { lazy, Suspense } from "react";
-
-import Loading from "../components/Loading";
+import { lazy } from "react";
 import type { RouteObject } from "react-router";
 
-const AuthPage = lazy(() => import("../pages/auth"));
-const SignUp = lazy(() => import("../pages/sign-up"));
-const SignIn = lazy(() => import("../pages/sign-in"));
+import WithLoading from "../hoc/WithLoading";
 
-const MainPage = lazy(() => import("../pages/main"));
-const HomePage = lazy(() => import("../pages/home"));
-const Blogs = lazy(() => import("../pages/blogs"));
-const BlogDetail = lazy(() => import("../pages/blog-detail"));
-const Profile = lazy(() => import("../pages/profile"));
-const NotFoundPage = lazy(() => import("../pages/not-found"));
+const AuthPage = WithLoading(lazy(() => import("../pages/auth")));
+const SignUp = WithLoading(lazy(() => import("../pages/sign-up")));
+const SignIn = WithLoading(lazy(() => import("../pages/sign-in")));
+
+const MainPage = WithLoading(lazy(() => import("../pages/main")));
+const HomePage = WithLoading(lazy(() => import("../pages/home")));
+const Blogs = WithLoading(lazy(() => import("../pages/blogs")));
+const BlogDetail = WithLoading(lazy(() => import("../pages/blog-detail")));
+const Profile = WithLoading(lazy(() => import("../pages/profile")));
+const NotFoundPage = WithLoading(lazy(() => import("../pages/not-found")));
 
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: (
-      <Suspense fallback={<Loading />}>
-        <AuthPage />
-      </Suspense>
-    ),
+    element: <AuthPage />,
     children: [
       {
-        path: "sign-up",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <SignUp />
-          </Suspense>
-        ),
+        path: "/sign-up",
+        element: <SignUp />,
       },
       {
-        path: "sign-in",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <SignIn />
-          </Suspense>
-        ),
+        path: "/sign-in",
+        element: <SignIn />,
       },
     ],
   },
   {
     path: "/",
-    element: (
-      <Suspense fallback={<Loading />}>
-        <MainPage />
-      </Suspense>
-    ),
+    element: <MainPage />,
     children: [
       {
-        path: "",
+        path: "/",
         index: true,
-        element: (
-          <Suspense fallback={<Loading />}>
-            <HomePage />
-          </Suspense>
-        ),
+        element: <HomePage />,
       },
       {
-        path: "blogs",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Blogs />
-          </Suspense>
-        ),
+        path: "/blogs",
+        element: <Blogs />,
       },
       {
-        path: "blogs/:id",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <BlogDetail />
-          </Suspense>
-        ),
+        path: "/blogs/:id",
+        element: <BlogDetail />,
       },
       {
-        path: "profile",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <Profile />
-          </Suspense>
-        ),
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "*",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <NotFoundPage />
-          </Suspense>
-        ),
+        element: <NotFoundPage />,
       },
     ],
   },

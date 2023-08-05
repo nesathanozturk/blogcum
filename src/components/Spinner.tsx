@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const Loading = () => {
+const Spinner = () => {
   return (
     <Box
       sx={{
@@ -17,4 +17,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default Spinner;

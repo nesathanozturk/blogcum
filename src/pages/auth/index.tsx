@@ -1,7 +1,7 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 
-import Loading from "../../components/Loading";
+import Loading from "../../components/Spinner";
 
 import { auth } from "../../config/firebase";
 
