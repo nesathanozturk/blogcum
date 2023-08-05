@@ -10,7 +10,6 @@ export const Container = styled.div`
 
 export const PageContainer = styled.section`
   padding: 0.2em 0.8em;
-  margin-top: 2em;
 
   @media ${breakpoints.lg} {
     padding-left: 1.6em;

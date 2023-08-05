@@ -7,7 +7,7 @@ export const FormContainer = styled.div`
   max-width: 40rem;
   display: flex;
   flex-direction: column;
-  margin: 1.6em auto;
+  margin: 1.7em auto;
   padding: 2.5em;
   background-color: #1c1b22;
   border-radius: 0.625em;
