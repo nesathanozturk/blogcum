@@ -1,5 +1,5 @@
 import AddIcon from "@mui/icons-material/Add";
-import { Stack, Button, Typography, Box } from "@mui/material";
+import { Stack, Button, Typography } from "@mui/material";
 import { Toaster } from "react-hot-toast";
 
 import WithComponents from "../../hoc/WithComponents";
@@ -7,8 +7,6 @@ import WithComponents from "../../hoc/WithComponents";
 import PostPreview from "../../components/PostPreview";
 import Title from "../../components/Title";
 import BasicModal from "../../components/Modal";
-
-import BlogContext from "../../context/BlogContext";
 
 import useBlogContext from "../../hooks/use-blog-context";
 import useToggle from "../../hooks/use-toggle";
@@ -18,7 +16,7 @@ import { IBlogs } from "../../types";
 import { Section, BlogContainer } from "../../styles/Blog.styled";
 
 const Blogs = () => {
-  const { blogs } = useBlogContext(BlogContext) as IBlogs;
+  const { blogs } = useBlogContext() as IBlogs;
 
   const { isModalOpen, handleModalOpen, handleModalClose } = useToggle();
 

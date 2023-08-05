@@ -1,10 +1,8 @@
-import React from "react";
-
 import Footer from "../layouts/footer";
 import Header from "../layouts/header";
 
 const WithComponents = (WrappedComponent: React.FC) => {
-  const NewComponent: React.FC = () => {
+  const NewComponent = () => {
     return (
       <>
         <Header />

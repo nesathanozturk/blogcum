@@ -1,14 +1,10 @@
-import React from "react";
-
-import AuthContext from "../context/AuthContext";
-
 import useAuthContext from "../hooks/use-auth-context";
 
-import { IAuth } from "../types";
+import { IAuth, IWithForm } from "../types";
 
-const WithForm = (WrappedComponent: React.FC) => {
-  const NewComponent: React.FC = () => {
-    const { handleSignUp, handleSignIn } = useAuthContext(AuthContext) as IAuth;
+const WithForm = (WrappedComponent: React.FC<IWithForm>) => {
+  const NewComponent = () => {
+    const { handleSignUp, handleSignIn } = useAuthContext() as IAuth;
 
     return (
       <>

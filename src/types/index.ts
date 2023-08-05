@@ -66,3 +66,8 @@ export interface IBlogs {
 export interface IBlogProps {
   blog: IBlog;
 }
+
+export interface IWithForm {
+  handleSignUp: (email: string, password: string) => void;
+  handleSignIn: (email: string, password: string) => void;
+}

@@ -2,8 +2,6 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
 
-import AuthContext from "../context/AuthContext";
-
 import useAuthContext from "../hooks/use-auth-context";
 
 import { IProfileMenuProps, IAuth } from "../types";
@@ -12,7 +10,7 @@ const ProfileMenu: React.FC<IProfileMenuProps> = ({
   isUserMenuOpen,
   handleCloseUserMenu,
 }) => {
-  const { handleSignOut } = useAuthContext(AuthContext) as IAuth;
+  const { handleSignOut } = useAuthContext() as IAuth;
 
   return (
     <>

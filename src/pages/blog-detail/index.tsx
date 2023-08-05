@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom";
 
 import WithComponents from "../../hoc/WithComponents";
 
-import BlogContext from "../../context/BlogContext";
-
 import useBlogContext from "../../hooks/use-blog-context";
 
 import { IBlogs } from "../../types";
@@ -20,7 +18,7 @@ import {
 } from "../../styles/BlogDetail.styled";
 
 const BlogDetail = () => {
-  const { blogs } = useBlogContext(BlogContext) as IBlogs;
+  const { blogs } = useBlogContext() as IBlogs;
 
   const { id } = useParams<{ id: string }>();
 

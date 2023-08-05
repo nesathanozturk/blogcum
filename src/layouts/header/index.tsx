@@ -15,6 +15,8 @@ import ProfileMenu from "../../components/ProfileMenu";
 
 import useToggle from "../../hooks/use-toggle";
 
+import avatar from "../../assets/avatar.webp";
+
 const Header = () => {
   const {
     isNavOpen,
@@ -74,10 +76,7 @@ const Header = () => {
             </Box>
             <Tooltip title="Ayarları aç">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar
-                  alt="Kullanıcı fotoğrafı"
-                  src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png"
-                />
+                <Avatar alt="Kullanıcı fotoğrafı" src={avatar} />
               </IconButton>
             </Tooltip>
             <ProfileMenu

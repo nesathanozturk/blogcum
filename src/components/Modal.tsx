@@ -2,8 +2,6 @@ import React from "react";
 import { Box, Typography, Avatar, Stack, Button } from "@mui/material";
 import Modal from "@mui/material/Modal";
 
-import BlogContext from "../context/BlogContext";
-
 import useBlogContext from "../hooks/use-blog-context";
 
 import { IBlogs, IModal } from "../types";
@@ -15,6 +13,8 @@ import {
   Input,
 } from "../styles/Blog.styled";
 
+import avatar from "../assets/avatar.webp";
+
 const BasicModal: React.FC<IModal> = ({ isModalOpen, handleModalClose }) => {
   const {
     addBlog,
@@ -22,7 +22,7 @@ const BasicModal: React.FC<IModal> = ({ isModalOpen, handleModalClose }) => {
     setBlogImage,
     setBlogTitle,
     setBlogDescription,
-  } = useBlogContext(BlogContext) as IBlogs;
+  } = useBlogContext() as IBlogs;
 
   return (
     <>
@@ -59,7 +59,7 @@ const BasicModal: React.FC<IModal> = ({ isModalOpen, handleModalClose }) => {
             <Avatar
               sx={{ width: 30, height: 30 }}
               alt="Kullanıcı fotoğrafı"
-              src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png"
+              src={avatar}
             />
             <UsernameInput
               type="text"
@@ -91,7 +91,6 @@ const BasicModal: React.FC<IModal> = ({ isModalOpen, handleModalClose }) => {
             mt={3}
           >
             <Button
-              onClick={handleModalClose}
               variant="contained"
               sx={{
                 backgroundColor: "#434C5A",

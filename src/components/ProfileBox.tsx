@@ -1,7 +1,9 @@
-import { Avatar, Typography, Box, Stack } from "@mui/material";
+import { Avatar, Typography, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 import { auth } from "../config/firebase";
+
+import avatar from "../assets/avatar.webp";
 
 const ProfileBox = () => {
   const ProfileContainer = styled("div")(({ theme }) => ({
@@ -23,8 +25,8 @@ const ProfileBox = () => {
       >
         <ProfileContainer>
           <Avatar
-            alt="wqeqwe"
-            src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_640.png"
+            alt="Kullanıcı fotoğrafı"
+            src={avatar}
             sx={{ width: 100, height: 100, mb: 2 }}
           />
           <Box mb={2}>
@@ -34,7 +36,7 @@ const ProfileBox = () => {
               fontWeight={800}
               sx={{ fontSize: { xs: "1.2rem", sm: "1.4rem", md: "1.8rem" } }}
             >
-              {auth?.currentUser.email}
+              {auth?.currentUser?.email}
             </Typography>
             <Typography
               component="h2"
@@ -54,12 +56,6 @@ const ProfileBox = () => {
             Bloguma hoş geldiniz! <br /> Burada sizlerle düşüncelerimi ve
             deneyimlerimi paylaşmaktan büyük bir keyif alıyorum.
           </Typography>
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            spacing={2}
-            mt={2}
-            mb={3}
-          ></Stack>
         </ProfileContainer>
       </Box>
     </>

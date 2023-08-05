@@ -7,6 +7,10 @@ import { createContext } from "react";
 
 import { auth } from "../config/firebase";
 
+interface FirebaseError {
+  code: string;
+}
+
 import { IAuth } from "../types";
 
 const AuthContext = createContext<IAuth | null>(null);
@@ -21,9 +25,15 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       await createUserWithEmailAndPassword(email, password);
       alert("Başarılı bir şekilde kayıt oldunuz!");
-    } catch (error: any) {
-      if (error.code === "auth/email-already-in-use") {
-        alert("Bu email adresi zaten kullanılıyor!");
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null) {
+        const firebaseError = error as FirebaseError;
+
+        if (firebaseError.code === "auth/email-already-in-use") {
+          alert("Bu email adresi zaten kullanılıyor!");
+        } else {
+          console.log(error);
+        }
       } else {
         console.log(error);
       }
@@ -34,16 +44,22 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     try {
       await signInWithEmailAndPassword(email, password);
       alert("Başarılı bir şekilde giriş yaptınız!");
-    } catch (error: any) {
-      switch (error.code) {
-        case "auth/wrong-password":
-          alert("Email için geçersiz şifre!");
-          break;
-        case "auth/user-not-found":
-          alert("Bu email adresi ile kayıtlı bir kullanıcı bulunamadı!");
-          break;
-        default:
-          console.log(error);
+    } catch (error: unknown) {
+      if (typeof error === "object" && error !== null) {
+        const firebaseError = error as FirebaseError;
+
+        switch (firebaseError.code) {
+          case "auth/wrong-password":
+            alert("Email için geçersiz şifre!");
+            break;
+          case "auth/user-not-found":
+            alert("Bu email adresi ile kayıtlı bir kullanıcı bulunamadı!");
+            break;
+          default:
+            console.log(error);
+        }
+      } else {
+        console.log(error);
       }
     }
   };

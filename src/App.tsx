@@ -6,11 +6,13 @@ import { Container } from "./styles/Container.styled";
 import { GlobalStyles } from "./styles/Global.styled";
 
 const App = () => {
+  const content = useRoutes(routes);
+
   return (
     <>
       <Container>
         <GlobalStyles />
-        {useRoutes(routes)}
+        {content}
       </Container>
     </>
   );

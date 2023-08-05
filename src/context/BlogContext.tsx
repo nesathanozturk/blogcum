@@ -5,12 +5,12 @@ import toast from "react-hot-toast";
 
 import { db } from "../config/firebase";
 
-import { IBlogs } from "../types";
+import { IBlog, IBlogs } from "../types";
 
 const BlogContext = createContext<IBlogs | null>(null);
 
 function BlogProvider({ children }: { children: React.ReactNode }) {
-  const [blogs, setBlogs] = useState<string[]>([]);
+  const [blogs, setBlogs] = useState<IBlog[]>([]);
   const [blogAuthor, setBlogAuthor] = useState<string>("");
   const [blogTitle, setBlogTitle] = useState<string>("");
   const [blogImage, setBlogImage] = useState<string>("");
@@ -23,8 +23,11 @@ function BlogProvider({ children }: { children: React.ReactNode }) {
       try {
         const data = await getDocs(blogsCollectionRef);
         const filteredData = data.docs.map((doc) => ({
-          ...doc.data(),
           id: doc.id,
+          author: doc.data().author,
+          title: doc.data().title,
+          image: doc.data().image,
+          description: doc.data().description,
         }));
         setBlogs(filteredData);
       } catch (err) {

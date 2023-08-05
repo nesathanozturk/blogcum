@@ -7,6 +7,12 @@ import { pages } from "../utils/data";
 import { INavLinksProps } from "../types";
 
 const NavLinks: React.FC<INavLinksProps> = ({ handleCloseNavMenu }) => {
+  const renderedNavLinks = pages?.map((page) => (
+    <NavbarLink key={page.name} to={page.path} onClick={handleCloseNavMenu}>
+      {page.name}
+    </NavbarLink>
+  ));
+
   return (
     <>
       <Box
@@ -14,15 +20,7 @@ const NavLinks: React.FC<INavLinksProps> = ({ handleCloseNavMenu }) => {
         mt={0.5}
         mr={1.2}
       >
-        {pages?.map((page) => (
-          <NavbarLink
-            key={page.name}
-            to={page.path}
-            onClick={handleCloseNavMenu}
-          >
-            {page.name}
-          </NavbarLink>
-        ))}
+        {renderedNavLinks}
       </Box>
     </>
   );
