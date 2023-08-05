@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface IProfileMenuProps {
   isUserMenuOpen: HTMLElement | null;
   handleCloseUserMenu: () => void;
@@ -78,4 +80,12 @@ export interface IModalButtonProps {
   bgColor: string;
   hoverBgColor: string;
   buttonText: string;
+}
+
+export interface Props {
+  children?: ReactNode;
+}
+
+export interface State {
+  hasError: boolean;
 }

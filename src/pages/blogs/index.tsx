@@ -21,6 +21,23 @@ const Blogs = () => {
   const { isModalOpen, setIsModalOpen, handleModalOpen, handleModalClose } =
     useToggle();
 
+  const blogList =
+    blogs?.length > 0 ? (
+      blogs?.map((blog) => <PostPreview key={blog.id} blog={blog} />)
+    ) : (
+      <Typography
+        component="p"
+        sx={{
+          marginTop: "1em",
+          fontSize: { xs: "1rem", sm: "1.3rem" },
+          fontWeight: "bold",
+          paddingLeft: { xs: "1.1em", sm: "0.7em" },
+        }}
+      >
+        Henüz hiç yazı eklenmemiş.
+      </Typography>
+    );
+
   return (
     <>
       <Header />
@@ -54,23 +71,7 @@ const Blogs = () => {
             </Typography>
           </Button>
         </Stack>
-        <BlogContainer>
-          {blogs?.length > 0 ? (
-            blogs?.map((blog) => <PostPreview key={blog.id} blog={blog} />)
-          ) : (
-            <Typography
-              component="p"
-              sx={{
-                marginTop: "1em",
-                fontSize: { xs: "1rem", sm: "1.3rem" },
-                fontWeight: "bold",
-                paddingLeft: { xs: "1.1em", sm: "0.7em" },
-              }}
-            >
-              Henüz hiç yazı eklenmemiş.
-            </Typography>
-          )}
-        </BlogContainer>
+        <BlogContainer>{blogList}</BlogContainer>
         <BasicModal
           isModalOpen={isModalOpen}
           handleModalClose={handleModalClose}
