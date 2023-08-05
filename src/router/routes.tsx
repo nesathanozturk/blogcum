@@ -13,7 +13,9 @@ const BlogDetail = lazy(() => import("../pages/blog-detail"));
 const Profile = lazy(() => import("../pages/profile"));
 const NotFoundPage = lazy(() => import("../pages/not-found"));
 
-const routes = [
+import { Route } from "../types";
+
+const routes: Route[] = [
   {
     path: "/",
     element: (

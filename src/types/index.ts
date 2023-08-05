@@ -89,3 +89,10 @@ export interface Props {
 export interface State {
   hasError: boolean;
 }
+
+export interface Route {
+  path: string;
+  element: React.ReactNode;
+  index?: boolean;
+  children?: Route[];
+}
