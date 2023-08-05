@@ -1,4 +1,5 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 import WithComponents from "../../hoc/WithComponents";
 
@@ -26,6 +27,12 @@ const BlogDetail = () => {
 
   const image = blog?.image === "" ? noImage : blog?.image;
 
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <BlogDetailContainer>
       <BlogImageWrapper>
@@ -34,6 +41,17 @@ const BlogDetail = () => {
       <BlogTitle>{blog?.title}</BlogTitle>
       <BlogDescription>{blog?.description}</BlogDescription>
       <BlogAuthor>Yazar: {blog?.author}</BlogAuthor>
+      <Button
+        variant="outlined"
+        onClick={goBack}
+        color="warning"
+        sx={{
+          marginTop: "1em",
+          fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+        }}
+      >
+        Geri Dön
+      </Button>
     </BlogDetailContainer>
   );
 };
