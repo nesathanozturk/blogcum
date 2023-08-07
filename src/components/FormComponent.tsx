@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useMatch } from "react-router-dom";
 
 import useAuthContext from "../hooks/use-auth-context";
 
@@ -31,6 +32,8 @@ const FormComponent: React.FC<IFormProp> = ({
 }) => {
   const { errorMessage } = useAuthContext() as IAuth;
 
+  const searchRoute = useMatch("/sign-in");
+
   const form = useForm({
     defaultValues: {
       username: "",
@@ -54,7 +57,7 @@ const FormComponent: React.FC<IFormProp> = ({
       <PageContainer>
         <FormContainer>
           <Title>{formTitle}</Title>
-          <SignInMessage>{errorMessage}</SignInMessage>
+          {searchRoute && <SignInMessage>{errorMessage}</SignInMessage>}
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormGroup>
               <Label htmlFor="username">Kullanıcı Adınız</Label>

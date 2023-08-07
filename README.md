@@ -6,7 +6,6 @@
 
 - React JS
 - Typescript
-- Vite
 - React Router
 - React Hook Form
 - Yup for validation
