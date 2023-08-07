@@ -16,7 +16,7 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
     useCreateUserWithEmailAndPassword(auth);
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const [signOut] = useSignOut(auth);
-  const [errorMessage, setErrorMessage] = useState<null | string>(null);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleSignUp = async (email: string, password: string) => {
     try {
