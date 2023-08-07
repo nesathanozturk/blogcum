@@ -14,8 +14,7 @@ const AuthContext = createContext<IAuth | null>(null);
 function AuthProvider({ children }: { children: React.ReactNode }) {
   const [createUserWithEmailAndPassword] =
     useCreateUserWithEmailAndPassword(auth);
-  const [signInWithEmailAndPassword, user] =
-    useSignInWithEmailAndPassword(auth);
+  const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const [signOut] = useSignOut(auth);
   const [errorMessage, setErrorMessage] = useState<null | string>(null);
 
@@ -31,7 +30,8 @@ function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const handleSignIn = async (email: string, password: string) => {
     try {
-      await signInWithEmailAndPassword(email, password);
+      const authUser = await signInWithEmailAndPassword(email, password);
+      const user = authUser?.user;
 
       if (user) {
         alert("Başarılı bir şekilde giriş yaptınız!");
