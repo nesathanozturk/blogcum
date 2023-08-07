@@ -7,7 +7,7 @@ export const FormContainer = styled.div`
   max-width: 40rem;
   display: flex;
   flex-direction: column;
-  margin: 8em auto;
+  margin: 5em auto;
   padding: 2.5em;
   background-color: #1c1b22;
   border-radius: 0.625em;
@@ -129,4 +129,10 @@ export const ErrorMessage = styled.p`
   @media ${breakpoints.lg} {
     font-size: 1rem;
   }
+`;
+
+export const SignInMessage = styled(ErrorMessage)`
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  text-align: center;
 `;

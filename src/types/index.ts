@@ -27,6 +27,7 @@ export interface IAuth {
   handleSignUp: (email: string, password: string) => void;
   handleSignIn: (email: string, password: string) => void;
   handleSignOut: () => void;
+  errorMessage: null | string;
 }
 
 export interface IFormProp {

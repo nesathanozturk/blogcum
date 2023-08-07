@@ -2,12 +2,15 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import useAuthContext from "../hooks/use-auth-context";
+
 import { schema } from "../schemas";
 
-import { IForm, IFormProp } from "../types";
+import { IAuth, IForm, IFormProp } from "../types";
 
 import {
   FormContainer,
+  SignInMessage,
   Title,
   FormGroup,
   Label,
@@ -26,6 +29,8 @@ const FormComponent: React.FC<IFormProp> = ({
   link,
   linkText,
 }) => {
+  const { errorMessage } = useAuthContext() as IAuth;
+
   const form = useForm({
     defaultValues: {
       username: "",
@@ -49,6 +54,7 @@ const FormComponent: React.FC<IFormProp> = ({
       <PageContainer>
         <FormContainer>
           <Title>{formTitle}</Title>
+          <SignInMessage>{errorMessage}</SignInMessage>
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormGroup>
               <Label htmlFor="username">Kullanıcı Adınız</Label>
