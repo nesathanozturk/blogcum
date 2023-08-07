@@ -20,11 +20,11 @@ const routes: RouteObject[] = [
     element: <AuthPage />,
     children: [
       {
-        path: "/sign-up",
+        path: "sign-up",
         element: <SignUp />,
       },
       {
-        path: "/sign-in",
+        path: "sign-in",
         element: <SignIn />,
       },
     ],
@@ -34,20 +34,20 @@ const routes: RouteObject[] = [
     element: <MainPage />,
     children: [
       {
-        path: "/",
+        path: "",
         index: true,
         element: <HomePage />,
       },
       {
-        path: "/blogs",
+        path: "blogs",
         element: <Blogs />,
       },
       {
-        path: "/blogs/:id",
+        path: "blogs/:id",
         element: <BlogDetail />,
       },
       {
-        path: "/profile",
+        path: "profile",
         element: <Profile />,
       },
       {

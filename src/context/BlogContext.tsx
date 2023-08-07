@@ -20,7 +20,6 @@ function BlogProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const getBlogs = async () => {
-      const blogsCollectionRef = collection(db, "blogs");
       const unsubscribe = onSnapshot(blogsCollectionRef, (snapshot) => {
         const updatedBlogs = snapshot.docs.map((doc) => ({
           id: doc.id,
